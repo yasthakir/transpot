@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Singhrj Transport - Premium Logistics</title>
+<meta name="description" content="Specialized truck transportation services for safe, secure and on-time delivery across regional and global routes. SinghRJ Transport, Luton UK." />
+<meta name="theme-color" content="#0a0a0b" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/truck-poster.jpg" fetchpriority="high">
+<style>
+/* SinghRJ Transport — cinematic redesign. Self-contained, no build step needed. */
+:root{
+  --bg:#0a0a0b; --bg2:#101012; --panel:#151518; --line:rgba(255,255,255,.09);
+  --text:#f3efe8; --muted:#a29d94; --gold:#D89A18; --gold2:#f2b84a; --orange:#e0701a;
+  --metal:linear-gradient(135deg,#f2b84a 0%,#D89A18 40%,#e0701a 100%);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1320px; --pad:clamp(20px,4vw,40px);
+  --display:'Barlow Condensed','Plus Jakarta Sans',system-ui,sans-serif;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,h4,p,figure,blockquote{margin:0}
+.wrap{width:100%;max-width:calc(var(--wrap) + var(--pad)*2);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#000;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic--sm{width:14px;height:14px}.ic--lg{width:30px;height:30px;stroke-width:1.6}
+.gold{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.center{text-align:center;margin-top:48px}
+
+/* Buttons */
+.btn{--h:48px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h);padding:0 26px;border-radius:12px;font-weight:700;font-size:15px;letter-spacing:.01em;border:1.5px solid transparent;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s,background .3s,border-color .3s;white-space:nowrap}
+.btn--lg{--h:58px;padding:0 32px;font-size:16px}
+.btn--block{width:100%}
+.btn--gold{background:var(--metal);color:#1a1205;box-shadow:0 10px 30px -8px rgba(216,154,24,.55), inset 0 1px 0 rgba(255,255,255,.35)}
+.btn--gold:hover{transform:translateY(-3px);box-shadow:0 18px 40px -8px rgba(224,112,26,.6), inset 0 1px 0 rgba(255,255,255,.4)}
+.btn--ghost{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.22);color:var(--text);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-3px)}
+.btn__dot{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#1a1205;color:var(--gold2)}
+.btn__dot .ic{width:14px;height:14px}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+
+/* Header */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .4s,backdrop-filter .4s,transform .5s var(--ease)}
+.utility{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);max-height:46px;overflow:hidden;transition:max-height .4s,opacity .4s,border-color .4s}
+.utility__row{display:flex;justify-content:space-between;align-items:center;min-height:44px;gap:24px}
+.utility__group{display:flex;gap:28px;align-items:center}
+.utility span,.utility a{display:inline-flex;align-items:center;gap:8px}
+.utility .ic{color:var(--gold);width:14px;height:14px}
+.utility .strong{color:var(--text);font-weight:700}
+.nav__row{display:flex;align-items:center;gap:32px;height:88px;transition:height .4s var(--ease)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand__logo{height:56px;width:auto;border-radius:50%;object-fit:cover}
+.brand__logo--lg{height:72px}
+.brand__text{font-family:var(--display);font-weight:800;font-size:30px;line-height:.9;letter-spacing:.04em;display:flex;flex-direction:column}
+.brand__text small{font-family:var(--sans);font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:700}
+.nav__links{display:flex;gap:36px;margin-left:auto;font-weight:600;font-size:15px}
+.nav__links a{position:relative;display:inline-flex;align-items:center;gap:4px;padding:8px 0;color:#e8e3da;transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--metal);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav__links a:hover,.nav__links a.is-active{color:var(--gold2)}
+.nav__links a:hover::after,.nav__links a.is-active::after{transform:scaleX(1)}
+.site-header.is-scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid var(--line)}
+.site-header.is-scrolled .utility{max-height:0;opacity:0;border-color:transparent}
+.site-header.is-scrolled .nav__row{height:70px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;margin-left:auto;position:relative;color:#fff}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:currentColor;border-radius:2px;transition:transform .35s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.burger.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:100;background:rgba(10,10,11,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;padding:0 24px 24px;transform:translateX(100%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s .45s}
+.mmenu.is-open{transform:none;visibility:visible;transition:transform .45s var(--ease)}
+.mmenu__top{display:flex;justify-content:space-between;align-items:center;height:80px;border-bottom:1px solid var(--line)}
+.mmenu ul{padding:36px 0;display:flex;flex-direction:column;gap:6px}
+.mmenu ul a{display:block;font-family:var(--display);font-size:46px;font-weight:700;padding:6px 0;text-transform:uppercase;letter-spacing:.02em}
+.mmenu ul a:hover{color:var(--gold2)}
+.mmenu__foot{margin-top:auto;display:grid;gap:16px}
+.mmenu__phone{display:flex;gap:10px;align-items:center;color:var(--muted);font-weight:600}
+
+/* Eyebrow / typography */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold);font-weight:800;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:22px}
+.eyebrow::before{content:"";width:36px;height:2px;background:var(--metal)}
+.display{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.96;letter-spacing:.005em;font-size:clamp(36px,6.4vw,88px);overflow-wrap:break-word}
+.lead{font-size:clamp(17px,1.5vw,20px);color:#d8d3c9;max-width:60ch}
+.muted{color:var(--muted);max-width:60ch}
+.section{padding:clamp(80px,11vw,150px) 0;position:relative}
+.section-head{margin-bottom:clamp(40px,6vw,72px)}
+.section-head .lead{margin-top:22px}
+
+/* ============ HERO ============ */
+.hero{position:relative;background:#000}
+.hero__track{height:760vh;position:relative}
+.hero__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center;isolation:isolate;background:#000}
+.hero__media{position:absolute;inset:0;z-index:-1}
+.hero__media>*{position:absolute;inset:0;width:100%;height:100%}
+.hero__poster,.hero__video{object-fit:cover;object-position:42% 50%}
+.hero__video{opacity:0;transition:opacity .8s ease}
+.hero.is-playing .hero__video{opacity:1}
+.hero__shade{background:
+  linear-gradient(90deg,rgba(6,6,7,.88) 0%,rgba(6,6,7,.6) 38%,rgba(6,6,7,.12) 70%,rgba(6,6,7,.25) 100%),
+  linear-gradient(0deg,rgba(10,10,11,1) 0%,rgba(10,10,11,.0) 34%),
+  linear-gradient(180deg,rgba(6,6,7,.7) 0%,transparent 28%)}
+.hero__vignette{background:radial-gradient(120% 90% at 70% 45%,transparent 40%,rgba(0,0,0,.55) 100%)}
+.grain{pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero__loader{position:absolute;inset:0;z-index:5;background:#050506;display:grid;place-items:center;transition:opacity .9s ease .2s,visibility 0s 1.2s;pointer-events:none}
+.hero__loader.is-done{opacity:0;visibility:hidden}
+.loader__bar{width:140px;height:2px;background:rgba(255,255,255,.12);position:relative;overflow:hidden;border-radius:2px}
+.loader__bar::after{content:"";position:absolute;inset:0;width:45%;background:var(--metal);animation:load 1.1s var(--ease) infinite}
+@keyframes load{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+.hero__copy{max-width:1100px}
+.hero__copy .hero__lead{max-width:52ch}
+.hero__title{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(46px,7.6vw,116px);line-height:.92;letter-spacing:.005em;margin-bottom:28px;text-shadow:0 6px 40px rgba(0,0,0,.45)}
+.hero__title .line{display:block;overflow:hidden;padding:.04em 0 .08em}
+.hero__title .word{display:inline-block;transform:translateY(110%) rotate(3deg);opacity:0;animation:wordIn 1.1s var(--ease) forwards;animation-delay:calc(.35s + var(--i)*.11s)}
+@keyframes wordIn{to{transform:none;opacity:1}}
+.hero .eyebrow{opacity:0;animation:fadeUp .9s var(--ease) .15s forwards}
+.fade-up{opacity:0;transform:translateY(24px);animation:fadeUp .9s var(--ease) forwards;animation-delay:var(--d,0s)}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero__lead{font-size:clamp(17px,1.7vw,21px);color:#e6e1d7;max-width:52ch;margin-bottom:36px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+.hero__proof{display:flex;align-items:baseline;gap:12px}
+.hero__proof strong{font-family:var(--display);font-size:44px;line-height:1}
+.hero__proof span{color:var(--muted);font-weight:600;font-size:14px}
+.hero__proof strong{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.scroll-cue{position:absolute;right:var(--pad);bottom:clamp(150px,18vh,200px);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#cfc9bd;writing-mode:vertical-rl;opacity:0;animation:fadeUp 1s ease 1.8s forwards}
+.scroll-cue i{width:1px;height:60px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:0;width:100%;height:40%;background:var(--gold2);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+.trust-wrap{position:absolute;left:0;right:0;bottom:clamp(24px,4vh,44px);z-index:3}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(14,14,16,.62);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid var(--line);border-radius:22px;padding:28px 12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.07)}
+.trust__item{display:flex;gap:16px;padding:0 24px;align-items:flex-start}
+.trust__item+.trust__item{border-left:1px solid var(--line)}
+.trust__item .ic{color:var(--gold);margin-top:2px}
+.trust__item h4{font-size:16px;font-weight:800;margin-bottom:4px}
+.trust__item p{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+/* ============ ABOUT ============ */
+.about{background:radial-gradient(70% 60% at 85% 20%,rgba(216,154,24,.09),transparent 60%),var(--bg)}
+.about__grid>*{min-width:0}
+.about__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.about__copy .lead{margin:30px 0 14px}
+.about__copy .muted{margin-bottom:34px}
+.about__visual{position:relative;perspective:1200px}
+.reveal-img{position:relative;aspect-ratio:4/4.4;border-radius:26px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.9),0 0 0 1px var(--line);clip-path:inset(0 0 100% 0 round 26px);transition:clip-path 1.5s var(--ease)}
+.about__visual.is-in .reveal-img{clip-path:inset(0 0 0 0 round 26px)}
+.reveal-img img{width:100%;height:116%;object-fit:cover;object-position:60% 50%;transform:translate3d(0,var(--py,0px),0) scale(1.08);will-change:transform}
+.reveal-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.5));pointer-events:none}
+.badge-years{position:absolute;left:-28px;bottom:36px;display:flex;gap:18px;align-items:center;padding:22px 30px 22px 24px;border-radius:20px;background:var(--metal);color:#1a1205;box-shadow:0 30px 60px -15px rgba(216,154,24,.55);transform:translateZ(60px)}
+.badge-years div{display:flex;align-items:center;gap:14px}
+.badge-years b{font-family:var(--display);font-size:64px;line-height:.8;font-weight:800}
+.badge-years small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
+.stats{border-block:1px solid var(--line);background:linear-gradient(180deg,#0d0d0f,#0a0a0b)}
+.stats__row{display:grid;grid-template-columns:repeat(4,1fr);padding-block:clamp(36px,5vw,60px);gap:20px}
+.stat{display:flex;gap:18px;align-items:center;justify-content:center}
+.stat .ic{color:var(--gold);padding:14px;width:62px;height:62px;border:1px solid rgba(216,154,24,.3);border-radius:50%;background:rgba(216,154,24,.06)}
+.stat b{display:block;font-family:var(--display);font-size:clamp(40px,4.4vw,58px);line-height:.95;font-weight:800}
+.stat small{color:var(--muted);font-weight:600;font-size:14px}
+
+/* ============ SERVICES ============ */
+.services{background:var(--bg)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;perspective:1400px}
+.card{position:relative;display:flex;flex-direction:column;min-height:480px;border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line);isolation:isolate;transform-style:preserve-3d;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.card__img{position:absolute;inset:0;z-index:-2;background:var(--img) center/cover;transition:transform 1.2s var(--ease),filter .6s;filter:saturate(.85) brightness(.75)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,11,.1) 0%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.96) 85%)}
+.card:hover .card__img{transform:scale(1.1);filter:saturate(1.1) brightness(.9)}
+.card__icon{margin:22px 0 0 22px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--metal);color:#1a1205;box-shadow:0 12px 28px -6px rgba(216,154,24,.6);transform:translateZ(50px);transition:transform .5s var(--ease)}
+.card:hover .card__icon{transform:translateZ(70px) rotate(-8deg) scale(1.08)}
+.card__body{margin-top:auto;padding:28px;transform:translateZ(30px)}
+.card__n{font-family:var(--display);font-size:18px;color:var(--gold);letter-spacing:.2em;display:block;margin-bottom:10px;font-weight:700}
+.card h3{font-family:var(--display);font-size:32px;line-height:1;text-transform:uppercase;font-weight:800;margin-bottom:12px}
+.card p{color:#cfc9bd;font-size:14.5px;margin-bottom:18px}
+.more{display:inline-flex;gap:8px;align-items:center;color:var(--gold2);font-weight:700;font-size:14px}
+.more .ic{transition:transform .35s var(--ease)}
+.card:hover .more .ic{transform:translateX(6px)}
+.tilt{will-change:transform;transition:transform .5s var(--ease),box-shadow .5s}
+.tilt.is-tilting{transition:transform .08s linear,box-shadow .5s;box-shadow:0 50px 90px -30px rgba(0,0,0,.9),0 0 60px -20px rgba(216,154,24,.35)}
+.tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,214,140,.18),transparent 45%);opacity:0;transition:opacity .4s}
+.tilt.is-tilting::after{opacity:1}
+
+/* ============ JOURNEY ============ */
+.journey{background:#000;position:relative}
+.journey__track{height:420vh;position:relative}
+.journey__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:flex-end}
+.journey__media{position:absolute;inset:0}
+.journey__media>video,.journey__media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 50%}
+.journey__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,1) 0%,rgba(10,10,11,.35) 22%,rgba(10,10,11,.2) 50%,rgba(10,10,11,.92) 100%),linear-gradient(90deg,rgba(6,6,7,.55),transparent 60%)}
+.journey__inner{position:relative;z-index:2;padding-bottom:clamp(60px,9vh,100px);width:100%}
+.journey__head{position:absolute;left:var(--pad);right:var(--pad);bottom:calc(100% - clamp(100px,16vh,170px) + 30px);display:none}
+.journey__head{display:block;position:relative;left:auto;right:auto;bottom:auto;margin-bottom:clamp(24px,5vh,50px)}
+.journey__head .display{font-size:clamp(42px,6vw,84px)}
+.journey__head .muted{margin-top:14px;color:#cfc9bd}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.steps::before{content:"";position:absolute;left:5%;right:5%;top:-14px;height:2px;background:rgba(255,255,255,.14)}
+.step{position:relative;padding:26px 24px 28px;border-radius:20px;background:rgba(14,14,16,.5);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:.45;transform:translateY(14px) scale(.97);transition:opacity .6s var(--ease),transform .6s var(--ease),border-color .6s,background .6s}
+.step.is-active{opacity:1;transform:none;border-color:rgba(216,154,24,.55);background:rgba(20,16,8,.7);box-shadow:0 30px 60px -20px rgba(216,154,24,.28)}
+.step.is-done{opacity:.75}
+.step__n{position:absolute;top:-35px;left:22px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:#16161a;border:2px solid rgba(255,255,255,.2);color:#ccc;transition:all .5s var(--ease)}
+.step.is-active .step__n,.step.is-done .step__n{background:var(--metal);color:#1a1205;border-color:#000;box-shadow:0 8px 24px -4px rgba(216,154,24,.6)}
+.step__icon{color:var(--gold);margin-bottom:14px}
+.step h3{font-family:var(--display);font-size:28px;text-transform:uppercase;line-height:1;margin-bottom:8px;font-weight:800}
+.step p{font-size:14px;color:#cfc9bd}
+.journey__progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
+.journey__progress b{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--metal)}
+.road{position:absolute;left:0;right:0;bottom:0;height:90px;overflow:hidden;opacity:.7;pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:space-around;mask-image:linear-gradient(180deg,transparent,#000 60%)}
+.road i{display:block;width:70px;height:4px;border-radius:3px;background:var(--gold2);box-shadow:0 0 14px rgba(242,184,74,.8);animation:roadmove 1.4s linear infinite}
+.road i:nth-child(odd){animation-delay:-.7s}
+@keyframes roadmove{from{transform:translateX(180px);opacity:0}20%{opacity:1}80%{opacity:1}to{transform:translateX(-180px);opacity:0}}
+.road{bottom:auto;top:auto;bottom:12px;height:12px}
+
+/* ============ WHY ============ */
+.why{background:radial-gradient(60% 50% at 10% 100%,rgba(224,112,26,.1),transparent 60%),var(--bg2)}
+.why__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;perspective:1400px}
+.feat{position:relative;padding:36px 28px 40px;border-radius:22px;background:linear-gradient(160deg,#1a1a1e,#111113);border:1px solid var(--line);transform-style:preserve-3d;overflow:hidden}
+.feat::before{content:"";position:absolute;inset:auto -30% -50% auto;width:260px;height:260px;background:radial-gradient(circle,rgba(216,154,24,.2),transparent 65%);transition:transform .8s var(--ease)}
+.feat:hover::before{transform:translate(-40px,-30px) scale(1.3)}
+.feat__icon{width:68px;height:68px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#2a2112,#16120a);border:1px solid rgba(216,154,24,.35);color:var(--gold2);margin-bottom:28px;transform:translateZ(40px);box-shadow:0 14px 30px -10px rgba(216,154,24,.35)}
+.feat h3{font-family:var(--display);font-size:30px;text-transform:uppercase;line-height:1;margin-bottom:10px;font-weight:800;transform:translateZ(24px)}
+.feat p{color:var(--muted);font-size:15px;transform:translateZ(16px)}
+
+/* ============ REVIEWS ============ */
+.reviews{background:var(--bg);overflow:hidden}
+.reviews .section-head{text-align:center;margin-bottom:56px}
+.reviews .section-head .lead{margin-inline:auto}
+.reviews .eyebrow{justify-content:center}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee__track{display:flex;gap:24px;width:max-content;animation:marquee 45s linear infinite;padding:10px 0}
+.marquee:hover .marquee__track,.marquee:focus .marquee__track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(calc(-50% - 12px))}}
+.review{width:min(420px,82vw);min-height:270px;padding:34px;border-radius:22px;background:linear-gradient(160deg,#18181b,#111113);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.review .q{font-family:Georgia,serif;font-size:80px;line-height:.5;height:34px;color:var(--gold);opacity:.8}
+.review blockquote{font-size:19px;font-weight:600;font-style:italic;color:#f1ece2}
+.review figcaption{display:flex;gap:14px;align-items:center}
+.review .av{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);font-weight:800;color:var(--gold2);flex:none;background:rgba(216,154,24,.07)}
+.review b{display:block;font-size:15px}
+.review small{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+
+/* ============ CTA ============ */
+.cta{padding-top:0}
+.cta__box{position:relative;border-radius:32px;overflow:hidden;isolation:isolate;border:1px solid rgba(216,154,24,.25);box-shadow:0 50px 100px -30px rgba(216,154,24,.25)}
+.cta__bg{position:absolute;inset:0;z-index:-2;background:var(--img) 50% 60%/cover;filter:saturate(.9)}
+.cta__box::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,11,.85),rgba(10,10,11,.7) 40%,rgba(10,10,11,.92)),radial-gradient(70% 60% at 50% 0%,rgba(216,154,24,.2),transparent 70%)}
+.cta__inner{padding:clamp(52px,8vw,110px) clamp(22px,6vw,90px);display:flex;flex-direction:column;align-items:center;text-align:center}
+.pill{border:1px solid var(--gold);color:var(--gold2);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 18px;border-radius:99px;margin-bottom:26px}
+.cta .display{font-size:clamp(38px,7vw,100px);margin-bottom:22px}
+.cta .lead{margin-bottom:40px;max-width:46ch}
+.cta__btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.cta__small{margin-top:26px;font-size:14px}
+.cta__small a{color:var(--muted);display:inline-flex;gap:8px;align-items:center;transition:color .3s}
+.cta__small a:hover{color:var(--gold2)}
+.road--cta{bottom:18px;opacity:.55}
+
+/* ============ FOOTER ============ */
+.footer{background:#060607;border-top:1px solid var(--line);padding-top:90px}
+.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:70px}
+.footer h4{font-family:var(--display);text-transform:uppercase;font-size:22px;letter-spacing:.06em;margin-bottom:24px}
+.footer ul{display:grid;gap:14px}
+.footer a{color:var(--muted);font-size:14.5px;transition:color .3s}
+.footer a:hover{color:var(--gold2)}
+.footer__brand p{color:var(--muted);font-size:14.5px;margin-top:22px;max-width:36ch}
+.contact-list li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:14.5px}
+.contact-list .ic{color:var(--gold);margin-top:3px}
+.footer__bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px;border-top:1px solid var(--line);color:#7d786f;font-size:13px}
+.footer__bar div{display:flex;gap:24px;flex-wrap:wrap}
+.footer__bar a{font-size:13px;color:#7d786f}
+
+/* Reveal */
+[data-reveal]{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--rd,0s)}
+[data-reveal].is-in{opacity:1;transform:none}
+.card[data-reveal].is-in,.feat[data-reveal].is-in{transition:opacity 1s var(--ease),transform .5s var(--ease)}
+
+/* ============ Responsive ============ */
+@media (max-width:1180px){
+  .cards,.why__grid{grid-template-columns:repeat(2,1fr)}
+  .footer__grid{grid-template-columns:1fr 1fr}
+  .nav__links{gap:24px}
+}
+@media (max-width:1024px){
+  .utility{display:none}
+  .nav__links,.nav__cta{display:none}
+  .burger{display:block}
+  .nav__row{height:72px}
+  .about__grid{grid-template-columns:1fr}
+  .about__visual{max-width:620px}
+  .badge-years{left:16px}
+  .trust{grid-template-columns:repeat(2,1fr);gap:22px 0;padding:22px 8px}
+  .trust__item:nth-child(3){border-left:0}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .hero__poster,.hero__video{object-position:44% 50%}
+  .hero__shade{background:linear-gradient(180deg,rgba(6,6,7,.8) 0%,rgba(6,6,7,.25) 38%,rgba(6,6,7,.55) 62%,rgba(10,10,11,1) 100%)}
+  .hero__cta .btn{width:100%}
+  .hero__proof{display:none}
+  .scroll-cue{display:none}
+  .trust{grid-template-columns:1fr 1fr;border-radius:18px;padding:18px 6px;gap:16px 0}
+  .trust__item{padding:0 12px;gap:10px;flex-direction:column}
+  .trust__item .ic{width:24px;height:24px}
+  .trust__item h4{font-size:14px}.trust__item p{font-size:12px}
+  .stats__row{grid-template-columns:1fr 1fr;gap:30px 12px}
+  .stat{flex-direction:column;text-align:center;gap:10px}
+  .cards,.why__grid{grid-template-columns:1fr}
+  .card{min-height:420px}
+  .journey__track{height:380vh}
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps::before{display:none}
+  .step{display:none;padding:20px 20px 22px}
+  .step.is-active{display:block;animation:fadeUp .6s var(--ease)}
+  .step__n{position:static;margin-bottom:12px;width:34px;height:34px}
+  .journey__head .muted{display:none}
+  .footer__grid{grid-template-columns:1fr;gap:36px}
+  .footer__bar{flex-direction:column}
+  .btn--lg{padding:0 22px;width:100%}
+  .cta__btns{width:100%}
+  .badge-years b{font-size:48px}
+  .badge-years{padding:16px 20px}
+}
+@media (hover:none){
+  .tilt{transform:none!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  [data-reveal],.fade-up,.hero .eyebrow,.hero__title .word,.scroll-cue{opacity:1!important;transform:none!important}
+  .reveal-img{clip-path:none!important}
+  .marquee__track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}
+  .step{opacity:1;transform:none;display:block!important}
+}
+.about .display{font-size:clamp(30px,5.2vw,76px)}
+@media (max-width:640px){.about .display{font-size:clamp(28px,8.2vw,40px);overflow-wrap:normal}}
+
+/* ---- scroll-driven hero chapters ---- */
+.hero__inner{position:absolute;inset:0;padding:0;display:block}
+.chap{position:absolute;left:var(--pad);bottom:clamp(60px,12vh,130px);max-width:640px;opacity:0;transform:translateY(40px);pointer-events:none;transition:opacity .6s var(--ease),transform .8s var(--ease);visibility:hidden}
+.chap.is-active{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.chap.is-past{transform:translateY(-40px)}
+.hero__copy.chap{top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:1100px;padding-top:110px}
+.chap__n{display:block;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.3em;color:var(--gold);margin-bottom:14px}
+.chap h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(46px,7.4vw,108px);line-height:.92;margin-bottom:18px;text-shadow:0 6px 40px rgba(0,0,0,.55)}
+.chap h2::first-line{color:var(--text)}
+.chap p{font-size:clamp(17px,1.6vw,21px);color:#e6e1d7;max-width:42ch;margin-bottom:26px;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.chap .hero__cta{margin-top:8px}
+.hero__rail{position:absolute;right:calc(var(--pad) + 2px);top:50%;transform:translateY(-50%);height:min(40vh,320px);width:2px;background:rgba(255,255,255,.18);z-index:4;border-radius:2px}
+.hero__rail b{display:block;width:100%;height:100%;background:var(--metal);transform:scaleY(0);transform-origin:top;border-radius:2px}
+.scroll-cue{transition:opacity .4s}
+.scroll-cue.is-hidden{opacity:0!important;animation:none}
+.trust-sec{padding:clamp(40px,6vw,70px) 0;background:linear-gradient(180deg,#000,var(--bg))}
+@media (max-width:640px){
+  .hero__track{height:620vh}
+  .chap{bottom:60px;right:var(--pad)}
+  .chap h2{font-size:clamp(40px,12vw,60px)}
+  .hero__copy.chap{bottom:0;padding-top:90px}
+  .hero__rail{display:none}
+}
+
+/* ================= PREMIUM PASS ================= */
+.hero__video,.hero__poster{filter:none}
+.hero .grain{display:none}
+.hero__shade{background:
+  linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 34%,rgba(0,0,0,0) 62%),
+  linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,0) 32%),
+  linear-gradient(180deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 22%)}
+.hero__vignette{background:radial-gradient(130% 100% at 60% 50%,transparent 55%,rgba(0,0,0,.5) 100%)}
+.hero__bars{position:absolute;inset:0;pointer-events:none;z-index:3;background:linear-gradient(180deg,#000 0,transparent 10%,transparent 90%,#000 100%);opacity:.55}
+.hero__stage::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;box-shadow:inset 0 0 0 1px rgba(216,154,24,.08)}
+.hero__rail{display:none}
+.hero__dots{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.hero__dots span{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.35);transition:color .4s}
+.hero__dots span::after{content:"";width:14px;height:2px;background:currentColor;transition:width .5s var(--ease),background .4s}
+.hero__dots span.is-on{color:var(--gold2)}
+.hero__dots span.is-on::after{width:44px;background:var(--metal)}
+.hero__dots span.is-done{color:rgba(255,255,255,.7)}
+.scroll-cue{right:calc(var(--pad) + 90px)}
+.chap h2{background:linear-gradient(180deg,#fff 30%,#e9d7b0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px rgba(0,0,0,.7))}
+.chap::before{content:"";display:block;width:64px;height:3px;background:var(--metal);margin-bottom:22px;border-radius:3px;transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .15s}
+.chap.is-active::before{transform:scaleX(1)}
+.hero__copy.chap::before{display:none}
+.hero__copy .hero__title{filter:drop-shadow(0 8px 30px rgba(0,0,0,.6))}
+
+/* ticker */
+.ticker{overflow:hidden;background:#000;border-block:1px solid rgba(216,154,24,.22);padding:18px 0}
+.ticker__track{display:flex;align-items:center;gap:36px;width:max-content;animation:tick 38s linear infinite}
+.ticker span{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,4vw,46px);letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(242,184,74,.75);white-space:nowrap}
+.ticker span:nth-of-type(3n){color:var(--gold);-webkit-text-stroke:0}
+.ticker i{width:10px;height:10px;border-radius:50%;background:var(--metal);flex:none}
+@keyframes tick{to{transform:translateX(-25%)}}
+
+/* ============ MOBILE: show the full frame sharp, text below ============ */
+@media (max-width:640px){
+  .hero__stage{display:block;background:radial-gradient(90% 45% at 50% 72%,rgba(216,154,24,.16),transparent 70%),#000}
+  .hero__stage{--mv:clamp(220px,37svh,400px)}
+  .hero__media{inset:62px 0 auto 0;height:var(--mv);box-shadow:0 30px 60px -20px rgba(0,0,0,.9)}
+  .hero__poster,.hero__video{object-position:56% 50%}
+  .hero__shade{background:linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 38%),linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 30%)}
+  .hero__vignette,.hero__bars{display:none}
+  .hero__media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--metal);opacity:.8}
+  .chap,.hero__copy.chap{top:calc(62px + var(--mv) + 26px);bottom:auto;left:var(--pad);right:var(--pad);max-width:none;padding-top:0;justify-content:flex-start}
+  .hero__copy .eyebrow{font-size:10.5px;margin-bottom:12px;letter-spacing:.2em}
+  .hero__title{font-size:clamp(38px,11.6vw,54px);margin-bottom:14px}
+  .hero__lead{font-size:15px;margin-bottom:20px;line-height:1.55}
+  .hero__cta{margin-bottom:0;gap:10px}
+  .hero__cta .btn{--h:50px;width:100%;font-size:15px}
+  .chap::before{margin-bottom:16px}
+  .chap__n{font-size:15px;margin-bottom:8px}
+  .chap h2{font-size:clamp(40px,12.4vw,58px);margin-bottom:12px}
+  .chap p{font-size:15.5px;margin-bottom:18px}
+  .hero__dots{top:auto;bottom:calc(18px + env(safe-area-inset-bottom));left:var(--pad);right:var(--pad);transform:none;flex-direction:row;justify-content:space-between;gap:6px}
+  .hero__dots span{flex:1;font-size:0;gap:0}
+  .hero__dots span::after{width:100%;height:3px;border-radius:3px}
+  .hero__dots span.is-on::after{width:100%}
+  .hero__dots span.is-done{color:var(--gold)}
+  .site-header{background:rgba(0,0,0,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .nav__row{height:62px}
+  .ticker span{font-size:26px}
+  .section{padding:72px 0}
+  .display{font-size:clamp(34px,10vw,48px)}
+  .trust{padding:20px 8px}
+  .card{min-height:400px}
+  .review{min-height:240px;padding:26px}
+}
+
+.chap{max-width:min(900px,90vw)}
+.chap p{max-width:42ch}
+@media (max-width:640px){.chap{max-width:none}}
+@media (max-width:640px){.hero__stage{--mv:clamp(210px,33svh,380px)}.hero__cta .btn{--h:48px}}
+@media (max-width:640px) and (max-height:720px){
+  .hero__stage{--mv:30svh}
+  .hero__lead{display:none}
+  .hero__title{font-size:clamp(34px,10.5vw,44px);margin-bottom:16px}
+  .chap p{font-size:14.5px;margin-bottom:12px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73zM12 22V12M3.3 7 12 12l8.7-5M7.5 4.3l9 5.2"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="utility">
+    <div class="wrap utility__row">
+      <div class="utility__group">
+        <span><svg class="ic"><use href="#i-pin"/></svg>60 Applecroft Road, Luton (LU2 8BD)</span>
+        <span><svg class="ic"><use href="#i-clock"/></svg>Mon - Sat 8:00 AM - 6:00 PM</span>
+      </div>
+      <div class="utility__group">
+        <a href="tel:+447438282122" class="strong"><svg class="ic"><use href="#i-phone"/></svg>+44 7438 282122</a>
+        <a href="mailto:info@singhrjtransport.com"><svg class="ic"><use href="#i-mail"/></svg>info@singhrjtransport.com</a>
+      </div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="wrap nav__row">
+      <a href="index.html" class="brand" aria-label="SinghRJ Transport home">
+        <img src="/logo.png" alt="" class="brand__logo" onerror="this.remove()" width="56" height="56">
+        <span class="brand__text">SINGHRJ<small>Transport</small></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="is-active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services <svg class="ic ic--sm"><use href="#i-chev"/></svg></a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <a href="quote.html" class="btn btn--gold nav__cta">Get a Quote <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <button class="burger" id="open-menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div class="mmenu" id="mobile-menu" aria-hidden="true">
+  <div class="mmenu__top">
+    <span class="brand__text">SINGHRJ<small>Transport</small></span>
+    <button class="burger is-open" id="close-menu" aria-label="Close menu"><span></span><span></span><span></span></button>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="mmenu__foot">
+    <a href="tel:+447438282122" class="mmenu__phone"><svg class="ic"><use href="#i-phone"/></svg>+44 7438 282122</a>
+    <a href="quote.html" class="btn btn--gold btn--block">Get a Quote <svg class="ic"><use href="#i-arrow"/></svg></a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="hero" aria-label="SinghRJ Transport">
+  <div class="hero__track" id="hero-track">
+    <div class="hero__stage">
+      <div class="hero__media" aria-hidden="true">
+        <img class="hero__poster" src="/img/truck-poster.jpg" alt="" fetchpriority="high" decoding="async">
+        <video class="hero__video" id="hero-video" muted playsinline preload="auto" poster="/img/truck-poster.jpg"
+               data-src-desktop="/videos/truck-hd-scrub.mp4" data-src-mobile="/videos/truck-hd-scrub-mobile.mp4" data-src-webm="/videos/truck-hd-scrub.webm"></video>
+        <div class="hero__shade"></div>
+        <div class="hero__vignette"></div>
+        <div class="grain"></div>
+      </div>
+      <div class="hero__loader" id="hero-loader" aria-hidden="true"><span class="loader__bar"></span></div>
+
+      <div class="wrap hero__inner">
+        <div class="hero__copy chap is-active" data-from="0" data-to="0.96">
+          <p class="eyebrow">Trusted. Reliable. On Time.</p>
+          <h1 class="hero__title" id="hero-title" aria-label="We Deliver Your Business Forward.">
+            <span class="line"><span class="word" style="--i:0">We</span> <span class="word" style="--i:1">Deliver</span> <span class="word" style="--i:2">Your</span></span>
+            <span class="line"><span class="word" style="--i:3">Business</span> <span class="word gold" style="--i:4">Forward.</span></span>
+          </h1>
+          <p class="hero__lead fade-up" style="--d:.9s">Specialized truck transportation services for safe, secure and on-time delivery across regional and global routes.</p>
+          <div class="hero__cta fade-up" style="--d:1.1s">
+            <a href="services.html" class="btn btn--gold btn--lg">Our Services <span class="btn__dot"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+            <a href="quote.html" class="btn btn--ghost btn--lg">Get a Quote <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="hero__proof fade-up" style="--d:1.3s"><strong>500+</strong><span>Happy Clients</span></div>
+        </div>
+      <div class="chap" data-from="0.96" data-to="2.17"><span class="chap__n">01</span><h2>Full Truckload (FTL)</h2><p>Dedicated trucks for large shipments with direct delivery and no stops.</p></div>
+      <div class="chap" data-from="2.17" data-to="4.5"><span class="chap__n">02</span><h2>Fast Delivery</h2><p>Optimized routing keeps cargo moving with minimal idle time.</p></div>
+      <div class="chap" data-from="4.5" data-to="5.6"><span class="chap__n">03</span><h2>Wide Coverage</h2><p>Extensive network across regional and global routes.</p></div>
+      <div class="chap" data-from="5.6" data-to="6.8"><span class="chap__n">04</span><h2>Safe Pickup</h2><p>Team verifies packaging, loads securely, and confirms dispatch.</p></div>
+      <div class="chap" data-from="6.8" data-to="8.25"><span class="chap__n">05</span><h2>Real-time Tracking</h2><p>Live updates from pickup to final handover.</p></div>
+      <div class="chap" data-from="8.25" data-to="10.1"><span class="chap__n">06</span><h2>On-Time Delivery</h2><p>We value time and ensure punctual deliveries.</p><div class="hero__cta"><a href="quote.html" class="btn btn--gold btn--lg">Get a Quote <svg class="ic"><use href="#i-arrow"/></svg></a><a href="contact.html" class="btn btn--ghost btn--lg">Contact Us <svg class="ic"><use href="#i-arrow"/></svg></a></div></div>
+      </div>
+
+      <div class="hero__rail" aria-hidden="true"><b id="hero-bar"></b></div>
+      <div class="hero__dots" id="hero-dots" aria-hidden="true"></div>
+      <div class="hero__bars" aria-hidden="true"></div>
+      <a href="#trust" class="scroll-cue" id="scroll-cue" aria-label="Scroll to explore"><span>Scroll</span><i></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ticker -->
+<div class="ticker" aria-hidden="true"><div class="ticker__track"><span>Trusted</span><i></i><span>Reliable</span><i></i><span>On Time</span><i></i><span>Safe &amp; Secure</span><i></i><span>Wide Coverage</span><i></i><span>Trusted</span><i></i><span>Reliable</span><i></i><span>On Time</span><i></i><span>Safe &amp; Secure</span><i></i><span>Wide Coverage</span><i></i><span>Trusted</span><i></i><span>Reliable</span><i></i><span>On Time</span><i></i><span>Safe &amp; Secure</span><i></i><span>Wide Coverage</span><i></i><span>Trusted</span><i></i><span>Reliable</span><i></i><span>On Time</span><i></i><span>Safe &amp; Secure</span><i></i><span>Wide Coverage</span><i></i></div></div>
+
+<!-- trust strip -->
+<section class="trust-sec" id="trust">
+  <div class="wrap">
+    <div class="trust" data-reveal>
+      <div class="trust__item"><svg class="ic ic--lg"><use href="#i-shield"/></svg><div><h4>Safe &amp; Secure</h4><p>Your cargo is protected with safety-first approach.</p></div></div>
+      <div class="trust__item"><svg class="ic ic--lg"><use href="#i-clock"/></svg><div><h4>On-Time Delivery</h4><p>We value time and ensure punctual deliveries.</p></div></div>
+      <div class="trust__item"><svg class="ic ic--lg"><use href="#i-globe"/></svg><div><h4>Wide Coverage</h4><p>Extensive network across regional and global routes.</p></div></div>
+      <div class="trust__item"><svg class="ic ic--lg"><use href="#i-headset"/></svg><div><h4>24/7 Support</h4><p>Our team is always here to assist you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ABOUT ============ -->
+<section class="about section" id="about">
+  <div class="wrap about__grid">
+    <div class="about__copy">
+      <p class="eyebrow" data-reveal>About SinghRJ Transport</p>
+      <h2 class="display" data-reveal>Professionalism<br>&amp; <span class="gold">punctuality</span><br>are our core values.</h2>
+      <p class="lead" data-reveal>Providing high-standard logistics and transportation services globally.</p>
+      <p class="muted" data-reveal>From small shipments to full truckload, we provide reliable transport services tailored to your needs &mdash; with optimized routing, strong safety protocols and live updates from pickup to final handover.</p>
+      <a href="about.html" class="btn btn--ghost" data-reveal>About Us <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="about__visual" data-reveal>
+      <div class="reveal-img" data-parallax-img>
+        <img src="/img/tunnel.jpg" alt="SinghRJ orange truck driving through a tunnel" loading="lazy" decoding="async" width="1280" height="720">
+      </div>
+      <div class="badge-years">
+        <svg class="ic ic--lg"><use href="#i-shield"/></svg>
+        <div><b><span data-count="15">15</span>+</b><small>Years of<br>Experience</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- stats -->
+<section class="stats">
+  <div class="wrap stats__row">
+    <div class="stat" data-reveal><svg class="ic ic--lg"><use href="#i-truck"/></svg><div><b><span data-count="50">50</span>+</b><small>Trucks in Fleet</small></div></div>
+    <div class="stat" data-reveal><svg class="ic ic--lg"><use href="#i-users"/></svg><div><b><span data-count="500">500</span>+</b><small>Happy Clients</small></div></div>
+    <div class="stat" data-reveal><svg class="ic ic--lg"><use href="#i-route"/></svg><div><b><span data-count="25">25</span>+</b><small>Regional Routes</small></div></div>
+    <div class="stat" data-reveal><svg class="ic ic--lg"><use href="#i-shield"/></svg><div><b><span data-count="99">99</span>%</b><small>On-Time Delivery</small></div></div>
+  </div>
+</section>
+
+<!-- ============ 3. SERVICES ============ -->
+<section class="services section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Our Services</p>
+      <h2 class="display" data-reveal>Transport Solutions<br>Built Around <span class="gold">You</span></h2>
+      <p class="lead" data-reveal>From small shipments to full truckload, we provide reliable transport services tailored to your needs.</p>
+    </div>
+    <div class="cards">
+      <a href="services.html" class="card tilt" data-reveal style="--img:url(/img/hero.jpg)">
+        <div class="card__img"></div>
+        <div class="card__icon"><svg class="ic"><use href="#i-truck"/></svg></div>
+        <div class="card__body"><span class="card__n">01</span><h3>Full Truckload (FTL)</h3><p>Dedicated trucks for large shipments with direct delivery and no stops.</p><span class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="services.html" class="card tilt" data-reveal style="--img:url(/img/city.jpg)">
+        <div class="card__img"></div>
+        <div class="card__icon"><svg class="ic"><use href="#i-package"/></svg></div>
+        <div class="card__body"><span class="card__n">02</span><h3>Part Truckload (PTL)</h3><p>Cost-effective solution for smaller shipments that don't require a full truck.</p><span class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="services.html" class="card tilt" data-reveal style="--img:url(/img/tunnel.jpg)">
+        <div class="card__img"></div>
+        <div class="card__icon"><svg class="ic"><use href="#i-clock"/></svg></div>
+        <div class="card__body"><span class="card__n">03</span><h3>Express Delivery</h3><p>Time-critical deliveries with fast transit and priority handling.</p><span class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="services.html" class="card tilt" data-reveal style="--img:url(/img/road.jpg)">
+        <div class="card__img"></div>
+        <div class="card__icon"><svg class="ic"><use href="#i-pin"/></svg></div>
+        <div class="card__body"><span class="card__n">04</span><h3>Regional Transport</h3><p>Reliable and frequent transport across all major UK regions.</p><span class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+    </div>
+    <div class="center" data-reveal><a href="services.html" class="btn btn--ghost">Explore All Services <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ============ 4. JOURNEY (scroll-scrubbed footage) ============ -->
+<section class="journey" id="journey" aria-label="Our journey: how we work">
+  <div class="journey__track">
+    <div class="journey__stage">
+      <div class="journey__media" aria-hidden="true">
+        <img class="journey__fallback" src="/img/road.jpg" alt="" loading="lazy">
+        <video id="journey-video" muted playsinline preload="auto" src="/videos/truck-hd-scrub.webm" tabindex="-1"></video>
+        <div class="journey__shade"></div>
+        <div class="road"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="grain"></div>
+      </div>
+      <div class="wrap journey__inner">
+        <div class="journey__head">
+          <p class="eyebrow">How We Work</p>
+          <h2 class="display">Simple <span class="gold">4-Step</span> Process</h2>
+          <p class="muted">Clear milestones, faster execution, and better shipment visibility.</p>
+        </div>
+        <ol class="steps" id="steps">
+          <li class="step is-active"><span class="step__n">1</span><div class="step__icon"><svg class="ic ic--lg"><use href="#i-clipboard"/></svg></div><h3>Book Shipment</h3><p>Share details, cargo type, and preferred pickup window.</p></li>
+          <li class="step"><span class="step__n">2</span><div class="step__icon"><svg class="ic ic--lg"><use href="#i-package"/></svg></div><h3>Safe Pickup</h3><p>Team verifies packaging, loads securely, and confirms dispatch.</p></li>
+          <li class="step"><span class="step__n">3</span><div class="step__icon"><svg class="ic ic--lg"><use href="#i-truck"/></svg></div><h3>In Transit</h3><p>Live status updates and checkpoint tracking during movement.</p></li>
+          <li class="step"><span class="step__n">4</span><div class="step__icon"><svg class="ic ic--lg"><use href="#i-check"/></svg></div><h3>Delivered</h3><p>Final handover with proof of delivery and completion update.</p></li>
+        </ol>
+      </div>
+      <div class="journey__progress" aria-hidden="true"><b id="journey-bar"></b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WHY CHOOSE US ============ -->
+<section class="why section" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Why SinghRJ Transport Stands Out</p>
+      <h2 class="display" data-reveal>Why SinghRJ Transport<br>Stands <span class="gold">Out</span></h2>
+    </div>
+    <div class="why__grid">
+      <article class="feat tilt" data-reveal><div class="feat__icon"><svg class="ic ic--lg"><use href="#i-truck"/></svg></div><h3>Fast Delivery</h3><p>Optimized routing keeps cargo moving with minimal idle time.</p></article>
+      <article class="feat tilt" data-reveal><div class="feat__icon"><svg class="ic ic--lg"><use href="#i-shield"/></svg></div><h3>Secure Shipment</h3><p>Handled with insurance and strong safety protocols.</p></article>
+      <article class="feat tilt" data-reveal><div class="feat__icon"><svg class="ic ic--lg"><use href="#i-pin"/></svg></div><h3>Real-time Tracking</h3><p>Live updates from pickup to final handover.</p></article>
+      <article class="feat tilt" data-reveal><div class="feat__icon"><svg class="ic ic--lg"><use href="#i-tag"/></svg></div><h3>Affordable Pricing</h3><p>Flexible pricing models for every cargo volume.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials (existing reviews, unchanged) -->
+<section class="reviews section" id="reviews">
+  <div class="wrap section-head">
+    <p class="eyebrow" data-reveal>Our Clients Say</p>
+    <h2 class="display" data-reveal>What Our Clients Say</h2>
+    <p class="lead" data-reveal>Real feedback from businesses who trust us with their cargo.</p>
+  </div>
+  <div class="marquee" tabindex="0" aria-label="Client reviews">
+    <div class="marquee__track">
+      <figure class="review"><div class="q">&ldquo;</div><blockquote>"It's a bit dated"</blockquote><figcaption><span class="av">MB</span><div><b>martyn broughton</b><small>Local Guide • 292 reviews • 94 photos</small><small>3 years ago</small></div></figcaption></figure>
+      <figure class="review"><div class="q">&ldquo;</div><blockquote>"Fast and Nice."</blockquote><figcaption><span class="av">CH</span><div><b>Costin Hemes</b><small>Local Guide • 12 reviews • 21 photos</small><small>5 years ago</small></div></figcaption></figure>
+      <figure class="review"><div class="q">&ldquo;</div><blockquote>"Easy to deal with"</blockquote><figcaption><span class="av">DL</span><div><b>dennis lownds</b><small>Local Guide • 153 reviews • 121 photos</small><small>years ago</small></div></figcaption></figure>
+      <figure class="review"><div class="q">&ldquo;</div><blockquote>"Excellent and reliable transport company in the UK."</blockquote><figcaption><span class="av">AM</span><div><b>Ana Machado</b><small>Local Guide • 56 reviews • 19 photos</small><small>6 years ago</small></div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. CTA ============ -->
+<section class="cta section" id="contact">
+  <div class="wrap">
+    <div class="cta__box" data-reveal>
+      <div class="cta__bg" style="--img:url(/img/road.jpg)"></div>
+      <div class="road road--cta"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cta__inner">
+        <span class="pill">Start Today</span>
+        <h2 class="display">Ready to Move <span class="gold">Your Cargo?</span></h2>
+        <p class="lead">Join businesses across the UK trusting SinghRJ for daily dispatch and dependable road freight handling.</p>
+        <div class="cta__btns">
+          <a href="quote.html" class="btn btn--gold btn--lg"><svg class="ic"><use href="#i-package"/></svg> Book Shipment Now <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a href="tel:+447438282122" class="btn btn--ghost btn--lg"><svg class="ic"><use href="#i-phone"/></svg> Call Expert: +44 7438 282122</a>
+        </div>
+        <p class="cta__small"><a href="contact.html">Or send us a message on our Contact page <svg class="ic ic--sm"><use href="#i-arrow"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 7. FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <a href="index.html" class="brand" aria-label="SinghRJ Transport"><img src="/logo.png" alt="" class="brand__logo brand__logo--lg" onerror="this.remove()" width="96" height="96" loading="lazy"><span class="brand__text">SINGHRJ<small>Transport</small></span></a>
+      <p>Providing high-standard logistics and transportation services globally. Professionalism and punctuality are our core values.</p>
+    </div>
+    <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div><h4>Our Services</h4><ul><li><a href="services.html">Road Transport</a></li><li><a href="services.html">Full Truckload</a></li><li><a href="services.html">Express Delivery</a></li><li><a href="services.html">Regional Distribution</a></li></ul></div>
+    <div><h4>Contact Info</h4><ul class="contact-list">
+      <li><svg class="ic"><use href="#i-pin"/></svg><span>60 Applecroft road, Luton<br>(LU2 8BD) UK</span></li>
+      <li><svg class="ic"><use href="#i-phone"/></svg><a href="tel:+447438282122">+44 7438 282122</a></li>
+      <li><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:info@singhrjtransport.com">info@singhrjtransport.com</a></li></ul></div>
+  </div>
+  <div class="wrap footer__bar">
+    <p>Copyright © 2026 SinghRJ Transport. All rights reserved.</p>
+    <div><a href="#">Privacy Policy</a><a href="#">Terms</a><span>Designed by SinghRJ</span></div>
+  </div>
+</footer>
+
+<script>
+/* SinghRJ Transport — cinematic interactions (vanilla, dependency-free) */
+(() => {
+  'use strict';
+  /* If opened by double-clicking the file (file://), root-relative URLs like /img/x.jpg can't resolve. Point them at ./public */
+  if (location.protocol === 'file:') {
+    const fix = u => (u && u[0] === '/' && u[1] !== '/') ? 'public' + u : u;
+    document.querySelectorAll('[src],[href]').forEach(el => {
+      ['src', 'href'].forEach(a => { const v = el.getAttribute(a); if (v && v[0] === '/' && v[1] !== '/') el.setAttribute(a, fix(v)); });
+    });
+    document.querySelectorAll('[style*="url(/"]').forEach(el => { el.setAttribute('style', el.getAttribute('style').replace(/url\(\/(?!\/)/g, 'url(public/')); });
+    window.__fixUrl = fix;
+  }
+  const U = u => (window.__fixUrl ? window.__fixUrl(u) : u);
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const isMobile = () => innerWidth < 768;
+
+  /* ---------- Header ---------- */
+  const header = $('#header');
+  const onScrollHeader = () => header.classList.toggle('is-scrolled', scrollY > 40);
+  addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
+
+  /* ---------- Mobile menu ---------- */
+  const menu = $('#mobile-menu'), openBtn = $('#open-menu'), closeBtn = $('#close-menu');
+  const setMenu = open => {
+    menu.classList.toggle('is-open', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    openBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  openBtn?.addEventListener('click', () => setMenu(true));
+  closeBtn?.addEventListener('click', () => setMenu(false));
+  $$('#mobile-menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---------- Hero: scroll-scrubbed HD footage + chapters ---------- */
+  const hero = $('#hero'), hv = $('#hero-video'), loader = $('#hero-loader');
+  const htrack = $('#hero-track'), hbar = $('#hero-bar'), cue = $('#scroll-cue');
+  const chaps = $$('.chap', hero);
+  const dotsEl = $('#hero-dots');
+  const sceneChaps = chaps.filter(c => +c.dataset.from > 0);
+  const dots = sceneChaps.map((c, i) => { const d = document.createElement('span'); d.textContent = '0' + (i + 1); dotsEl.appendChild(d); return d; });
+  let loaderGone = false;
+  const hideLoader = () => { if (loaderGone) return; loaderGone = true; loader.classList.add('is-done'); };
+  const poster = $('.hero__poster');
+  if (poster.complete) setTimeout(hideLoader, 400); else poster.addEventListener('load', () => setTimeout(hideLoader, 300));
+  setTimeout(hideLoader, 2500);
+
+  // The bundled MP4 files are not present in public/videos. Prefer the
+  // included WebM source, and fall back to it if a media source fails.
+  hv.src = U(hv.dataset.srcWebm);
+  hv.muted = true; hv.pause();
+  let hReady = false, hSeeking = false;
+  hv.addEventListener('loadedmetadata', () => { hReady = true; hv.currentTime = 0.001; });
+  hv.addEventListener('seeked', () => { hSeeking = false; hero.classList.add('is-playing'); });
+  hv.addEventListener('error', () => hero.classList.remove('is-playing')); // poster stays as fallback
+  hv.load();
+
+  // headline holds briefly before the footage starts moving
+  const HOLD = 0.06;
+  const DUR = () => (hv.duration && isFinite(hv.duration)) ? hv.duration : 10;
+  const warp = p => p < HOLD ? (p / HOLD) * 0.35 : 0.35 + (p - HOLD) / (1 - HOLD) * (DUR() - 0.4);
+  let hCur = 0, hOn = true;
+  const hProgress = () => { const r = htrack.getBoundingClientRect(); return Math.min(1, Math.max(0, -r.top / (r.height - innerHeight))); };
+  const setChap = t => {
+    chaps.forEach(c => {
+      const on = t >= +c.dataset.from && t < +c.dataset.to;
+      c.classList.toggle('is-active', on);
+      c.classList.toggle('is-past', t >= +c.dataset.to);
+    });
+    sceneChaps.forEach((c, i) => { dots[i].classList.toggle('is-on', t >= +c.dataset.from && t < +c.dataset.to); dots[i].classList.toggle('is-done', t >= +c.dataset.to); });
+  };
+  {
+    new IntersectionObserver(([e]) => { hOn = e.isIntersecting; }, { rootMargin: '150px' }).observe(htrack);
+    (function hLoop() {
+      if (hOn) {
+        const target = hProgress(); hCur += (target - hCur) * (reduce ? 1 : 0.14); if (Math.abs(target - hCur) < 0.0004) hCur = target;
+        const t = Math.min(DUR() - 0.04, warp(hCur));
+        if (hReady && !hSeeking && Math.abs(hv.currentTime - t) > 0.02) { hSeeking = true; hv.currentTime = t; }
+        hbar.style.transform = `scaleY(${hCur})`;
+        setChap(t);
+        cue.classList.toggle('is-hidden', hCur > 0.02);
+      }
+      requestAnimationFrame(hLoop);
+    })();
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('is-in');
+    io.unobserve(e.target);
+  }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  $$('[data-reveal]').forEach((el, i) => {
+    // stagger siblings
+    const sibs = el.parentElement ? $$(':scope > [data-reveal]', el.parentElement) : [];
+    el.style.setProperty('--rd', (Math.max(0, sibs.indexOf(el)) * 0.09) + 's');
+    io.observe(el);
+  });
+
+  /* ---------- Count-up (real figures only: values come from markup) ---------- */
+  const countIO = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    countIO.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count;
+    if (reduce) { el.textContent = end; return; }
+    const t0 = performance.now(), dur = 1600;
+    const tick = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 4))); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }), { threshold: 0.6 });
+  $$('[data-count]').forEach(el => countIO.observe(el));
+
+  /* ---------- 3D tilt cards ---------- */
+  if (fine && !reduce) {
+    $$('.tilt').forEach(el => {
+      let raf = 0;
+      el.addEventListener('pointermove', e => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          el.classList.add('is-tilting');
+          el.style.transform = `perspective(1000px) rotateX(${(0.5 - y) * 9}deg) rotateY(${(x - 0.5) * 11}deg) translateY(-6px)`;
+          el.style.setProperty('--mx', x * 100 + '%'); el.style.setProperty('--my', y * 100 + '%');
+        });
+      });
+      el.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); el.classList.remove('is-tilting'); el.style.transform = ''; });
+    });
+  }
+
+  /* ---------- About image parallax ---------- */
+  const pimg = $('[data-parallax-img]');
+  if (pimg && !reduce) {
+    const upd = () => {
+      const r = pimg.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      pimg.style.setProperty('--py', (-p * 50 - 20) + 'px');
+    };
+    addEventListener('scroll', upd, { passive: true }); upd();
+  }
+
+  /* ---------- Journey: scroll-scrubbed real footage ---------- */
+  const track = $('.journey__track'), jv = $('#journey-video'), bar = $('#journey-bar');
+  const steps = $$('.step', track);
+  if (track && jv) {
+    let target = 0, cur = 0, ready = false, ticking = false, seeking = false;
+    jv.muted = true; jv.pause();
+    jv.addEventListener('loadedmetadata', () => { ready = true; jv.currentTime = 0.001; });
+    jv.addEventListener('error', () => { jv.style.display = 'none'; });
+    jv.src = U('/videos/truck-hd-scrub.webm');
+    jv.load();
+    const progress = () => {
+      const r = track.getBoundingClientRect();
+      return Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+    };
+    const setSteps = p => {
+      const idx = Math.min(steps.length - 1, Math.floor(p * steps.length * 0.9999));
+      steps.forEach((s, i) => { s.classList.toggle('is-active', i === idx); s.classList.toggle('is-done', i < idx); });
+    };
+    jv.addEventListener('seeked', () => { seeking = false; });
+    // only run the loop while the section is near the viewport
+    let running = false;
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !running) { running = true; requestAnimationFrame(function again() { if (!running) return; loopOnce(); requestAnimationFrame(again); }); }
+      else if (!e.isIntersecting) running = false;
+    }, { rootMargin: '100px' }).observe(track);
+    const loopOnce = () => {
+      target = progress(); cur += (target - cur) * 0.12; if (Math.abs(target - cur) < 0.0004) cur = target;
+      bar.style.transform = `scaleX(${cur})`; setSteps(cur);
+      if (ready && jv.duration && !seeking) {
+        const t = Math.min(jv.duration - 0.05, cur * jv.duration);
+        if (Math.abs(jv.currentTime - t) > 0.03) { seeking = true; jv.currentTime = t; }
+      }
+    };
+  } else if (jv) { jv.style.display = 'none'; }
+
+  /* ---------- Marquee: duplicate for seamless loop ---------- */
+  const mt = $('.marquee__track');
+  if (mt && !reduce) {
+    $$(':scope > .review', mt).forEach(n => { const c = n.cloneNode(true); c.setAttribute('aria-hidden', 'true'); mt.appendChild(c); });
+    // keep 4 originals + 4 clones: loop distance = half
+  }
+
+  /* ---------- Hero mouse parallax (desktop only) ---------- */
+  if (fine && !reduce) {
+    const copy = $('.hero__copy');
+    hero.addEventListener('pointermove', e => { if (!copy.classList.contains('is-active')) return;
+      const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+      copy.style.transform = `translate3d(${x * -8}px,${y * -6}px,0)`;
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
