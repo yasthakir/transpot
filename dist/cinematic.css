@@ -378,25 +378,27 @@ h1,h2,h3,h4,p,figure,blockquote{margin:0}
 .ticker i{width:10px;height:10px;border-radius:50%;background:var(--metal);flex:none}
 @keyframes tick{to{transform:translateX(-25%)}}
 
-/* ============ MOBILE: show the full frame sharp, text below ============ */
+/* ============ MOBILE: full-screen hero video with overlaid content ============ */
 @media (max-width:640px){
-  .hero__stage{display:block;background:radial-gradient(90% 45% at 50% 72%,rgba(216,154,24,.16),transparent 70%),#000}
-  .hero__stage{--mv:clamp(220px,37svh,400px)}
-  .hero__media{inset:62px 0 auto 0;height:var(--mv);box-shadow:0 30px 60px -20px rgba(0,0,0,.9)}
-  .hero__poster,.hero__video{object-position:56% 50%}
-  .hero__shade{background:linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 38%),linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 30%)}
+  .hero__stage{display:flex;align-items:center;background:#000}
+  .hero__media{inset:0;width:100%;height:100%;overflow:hidden}
+  .hero__poster,.hero__video{object-position:56% 50%;transform:scale(1.08);transform-origin:56% 50%}
+  .hero__shade{background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.2) 85%),linear-gradient(0deg,rgba(0,0,0,.82),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.5),transparent 30%)}
   .hero__vignette,.hero__bars{display:none}
-  .hero__media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--metal);opacity:.8}
-  .chap,.hero__copy.chap{top:calc(62px + var(--mv) + 26px);bottom:auto;left:var(--pad);right:var(--pad);max-width:none;padding-top:0;justify-content:flex-start}
-  .hero__copy .eyebrow{font-size:10.5px;margin-bottom:12px;letter-spacing:.2em}
-  .hero__title{font-size:clamp(38px,11.6vw,54px);margin-bottom:14px}
-  .hero__lead{font-size:15px;margin-bottom:20px;line-height:1.55}
+  .chap,.hero__copy.chap{left:var(--pad);right:var(--pad);max-width:none}
+  .chap{top:auto;bottom:clamp(76px,12svh,112px)}
+  .hero__copy.chap{top:0;bottom:0;padding:62px 0 calc(82px + env(safe-area-inset-bottom));justify-content:flex-end}
+  .hero__copy .eyebrow{font-size:10.5px;margin-bottom:10px;letter-spacing:.2em;color:#ffd273;text-shadow:0 2px 12px rgba(0,0,0,.95)}
+  .hero__title{font-size:clamp(38px,11vw,54px);margin-bottom:16px}
+  .hero__lead{font-size:15px;font-weight:600;color:#fff;margin-bottom:20px;line-height:1.5;text-shadow:0 2px 12px rgba(0,0,0,.95)}
   .hero__cta{margin-bottom:0;gap:10px}
-  .hero__cta .btn{--h:50px;width:100%;font-size:15px}
-  .chap::before{margin-bottom:16px}
+  .hero__cta .btn{--h:48px;width:100%;font-size:15px}
+  .chap::before{margin-bottom:14px}
   .chap__n{font-size:15px;margin-bottom:8px}
-  .chap h2{font-size:clamp(40px,12.4vw,58px);margin-bottom:12px}
-  .chap p{font-size:15.5px;margin-bottom:18px}
+  .chap h2{font-size:clamp(36px,10.5vw,50px);margin-bottom:10px}
+  .chap p{font-size:15px;line-height:1.45;margin-bottom:14px}
+  .chap .hero__cta{gap:8px;margin-top:0}
+  .chap .hero__cta .btn{--h:44px;min-height:44px;padding-inline:16px;font-size:14px}
   .hero__dots{top:auto;bottom:calc(18px + env(safe-area-inset-bottom));left:var(--pad);right:var(--pad);transform:none;flex-direction:row;justify-content:space-between;gap:6px}
   .hero__dots span{flex:1;font-size:0;gap:0}
   .hero__dots span::after{width:100%;height:3px;border-radius:3px}
@@ -417,8 +419,15 @@ h1,h2,h3,h4,p,figure,blockquote{margin:0}
 @media (max-width:640px){.chap{max-width:none}}
 @media (max-width:640px){.hero__stage{--mv:clamp(210px,33svh,380px)}.hero__cta .btn{--h:48px}}
 @media (max-width:640px) and (max-height:720px){
-  .hero__stage{--mv:30svh}
   .hero__lead{display:none}
-  .hero__title{font-size:clamp(34px,10.5vw,44px);margin-bottom:16px}
-  .chap p{font-size:14.5px;margin-bottom:12px}
+  .hero__copy.chap{top:0;bottom:0;padding:62px 0 calc(68px + env(safe-area-inset-bottom));justify-content:flex-end}
+  .hero__title{font-size:clamp(34px,10.5vw,44px);margin-bottom:12px}
+  .hero__copy .eyebrow{margin-bottom:8px}
+  .chap{bottom:calc(64px + env(safe-area-inset-bottom))}
+  .chap::before{margin-bottom:10px}
+  .chap h2{font-size:clamp(32px,9.5vw,40px);margin-bottom:8px}
+  .chap p{font-size:13px;line-height:1.35;margin-bottom:8px}
+  .chap .hero__cta{gap:6px}
+  .chap .hero__cta .btn{--h:40px;min-height:40px;padding-inline:12px;font-size:13px}
+  .hero__dots{bottom:calc(10px + env(safe-area-inset-bottom))}
 }

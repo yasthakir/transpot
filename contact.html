@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;450;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -52,9 +54,10 @@
             box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
         }
     </style>
+    <link rel="stylesheet" href="/src/subpages-theme.css">
 </head>
 
-<body class="min-h-screen text-[#141414] font-sans">
+<body class="min-h-screen text-[#141414] font-sans page-theme">
 
     <!-- Top Utility Bar -->
     <div
@@ -90,7 +93,7 @@
 
             <!-- Logo -->
             <a href="index.html" class="flex items-center group" style="text-decoration:none;">
-                <img src="/logo.png" alt="SinghRJ Transport" class="h-[85px] w-[280px] md:w-auto object-contain object-left hover:scale-105 transition-transform duration-300">
+                <img src="/srjlogo.png" alt="SinghRJ Transport" class="h-[48px] w-[128px] sm:h-[72px] sm:w-[200px] object-cover object-center rounded-lg shadow-[0_0_14px_rgba(216,154,24,0.3)] hover:scale-105 transition-transform duration-300">
             </a>
 
             <!-- Menu -->
@@ -159,7 +162,7 @@
 
 
     <!-- CONTACT HERO -->
-    <div class="relative bg-[#FDFBF7] pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden border-b border-[#ECE7DE]/50">
+    <div class="page-hero page-hero--contact relative bg-[#FDFBF7] pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden border-b border-[#ECE7DE]/50">
         <div class="absolute inset-0 bg-dotted opacity-[0.35] z-0 pointer-events-none"></div>
         <div class="content-container relative z-10 w-full max-w-[1440px] px-4 lg:px-12 mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -338,9 +341,9 @@
                             <span class="text-[#666666] font-[600] text-[14px]">Sunday</span>
                             <span class="text-red-500 font-[700] text-[14px]">Closed</span>
                         </div>
-                        <div class="mt-6 bg-[#fdf8f0] border border-[#f5e6cd] p-4 rounded-xl flex items-start gap-3">
-                            <i data-lucide="alert-circle" class="w-5 h-5 text-[#D89A18] shrink-0 mt-0.5"></i>
-                            <span class="text-[#141414] text-[13px] font-[600] leading-[1.6]">24/7 emergency dispatch
+                        <div class="mt-6 bg-[#D89A18] border border-[#c28815] p-4 rounded-xl flex items-start gap-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-[#0D1B14] shrink-0 mt-0.5"></i>
+                            <span class="text-[13px] font-[600] leading-[1.6]">24/7 emergency dispatch
                                 support is active for existing enterprise clients.</span>
                         </div>
                     </div>
@@ -373,9 +376,8 @@
                         </div>
                     </div>
 
-                    <form id="main-contact-form" action="https://formspree.io/f/xbjnrvqa" method="POST"
+                    <form id="main-contact-form" action="/api/messages" method="POST"
                         class="flex flex-col gap-6">
-                        <!-- We use a dummy formspree ID here. To make it totally functional for their real email, they can replace 'xbjnrvqa' with their generated ID -->
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="flex flex-col gap-2">
@@ -618,7 +620,7 @@
                 <div class="flex flex-col items-center md:items-start pr-0 lg:pr-6">
                     <!-- Footer Logo -->
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
-                        <img src="/logo.png" alt="SinghRJ Transport" class="h-[120px] w-[120px] rounded-full object-cover shadow-[0_0_0_3px_rgba(255,255,255,0.15)] hover:scale-105 transition-transform duration-300">
+                        <img src="/srjlogo.png" alt="SinghRJ Transport" class="h-[48px] w-[128px] sm:h-[72px] sm:w-[200px] rounded-lg object-cover object-center shadow-[0_0_14px_rgba(216,154,24,0.3)] hover:scale-105 transition-transform duration-300">
                     </div>
 
 
@@ -821,7 +823,6 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Formspree Handling
             const form = document.getElementById("main-contact-form");
             const successBox = document.getElementById("form-success");
             const errorBox = document.getElementById("form-error");
@@ -846,21 +847,23 @@
                     submitBtn.classList.add("opacity-80", "cursor-not-allowed");
 
                     try {
+                        const values = Object.fromEntries(new FormData(form).entries());
                         const response = await fetch(form.action, {
                             method: form.method,
-                            body: new FormData(form),
-                            headers: {
-                                'Accept': 'application/json'
-                            }
+                            body: JSON.stringify(values),
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
                         });
 
                         if (response.ok) {
                             successBox.classList.remove("hidden");
                             form.reset();
                         } else {
+                            const result = await response.json().catch(() => ({}));
+                            errorBox.querySelector("p").textContent = result.error || "Please try again or contact us directly via phone.";
                             errorBox.classList.remove("hidden");
                         }
                     } catch (error) {
+                        errorBox.querySelector("p").textContent = "Could not connect to the server. Please try again or contact us directly via phone.";
                         errorBox.classList.remove("hidden");
                     } finally {
                         // Restore button state

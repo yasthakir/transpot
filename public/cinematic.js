@@ -48,15 +48,22 @@
   if (poster.complete) setTimeout(hideLoader, 400); else poster.addEventListener('load', () => setTimeout(hideLoader, 300));
   setTimeout(hideLoader, 2500);
 
-  // Use the full-resolution desktop master on every screen; mobile CSS crops it.
-  hv.src = U(hv.dataset.srcDesktop);
   hv.muted = true; hv.pause();
   let hReady = false, hSeeking = false;
+  const setHeroSource = () => {
+    const src = U(isMobile() ? hv.dataset.srcMobile : hv.dataset.srcDesktop);
+    if (hv.getAttribute('src') === src) return;
+    hReady = false; hSeeking = false;
+    hero.classList.remove('is-playing');
+    hv.src = src;
+    hv.load();
+  };
   hv.addEventListener('loadedmetadata', () => { hReady = true; });
-  hv.addEventListener('loadeddata', () => hero.classList.add('is-playing'));
+  hv.addEventListener('loadeddata', () => { hero.classList.add('is-playing'); hideLoader(); });
   hv.addEventListener('seeked', () => { hSeeking = false; hero.classList.add('is-playing'); });
   hv.addEventListener('error', () => hero.classList.remove('is-playing')); // poster stays as fallback
-  hv.load();
+  setHeroSource();
+  addEventListener('resize', setHeroSource, { passive: true });
 
   // headline holds briefly before the footage starts moving
   const HOLD = 0.06;
@@ -147,10 +154,18 @@
   if (track && jv) {
     let target = 0, cur = 0, ready = false, ticking = false, seeking = false;
     jv.muted = true; jv.pause();
+    const setJourneySource = () => {
+      const src = U(isMobile() ? jv.dataset.srcMobile : jv.dataset.srcDesktop);
+      if (jv.getAttribute('src') === src) return;
+      ready = false; seeking = false;
+      jv.src = src;
+      jv.load();
+    };
     jv.addEventListener('loadedmetadata', () => { ready = true; });
     jv.addEventListener('error', () => { jv.style.display = 'none'; });
-    jv.src = U('/videos/truck-hd-scrub.mp4');
-    jv.load();
+    jv.addEventListener('loadeddata', () => { jv.style.display = ''; });
+    setJourneySource();
+    addEventListener('resize', setJourneySource, { passive: true });
     const progress = () => {
       const r = track.getBoundingClientRect();
       return Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));

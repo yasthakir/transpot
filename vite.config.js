@@ -4,14 +4,20 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [tailwindcss()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about.html'),
-        contact: resolve(__dirname, 'contact.html'),
-        services: resolve(__dirname, 'services.html'),
-        quote: resolve(__dirname, 'quote.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        about: resolve(import.meta.dirname, 'about.html'),
+        contact: resolve(import.meta.dirname, 'contact.html'),
+        services: resolve(import.meta.dirname, 'services.html'),
+        quote: resolve(import.meta.dirname, 'quote.html'),
+        admin: resolve(import.meta.dirname, 'admin.html'),
       },
     },
   },

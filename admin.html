@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b0a">
+  <title>Admin — SinghRJ Transport</title>
+</head>
+<body class="admin-body">
+  <main id="login-view" class="login-wrap">
+    <form id="login-form" class="login-card">
+      <a class="brand" href="/">SINGHRJ <span>TRANSPORT</span></a>
+      <p class="eyebrow">SECURE ADMINISTRATION</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to manage quote requests and customer support.</p>
+      <label for="login-email">Admin email</label>
+      <input id="login-email" name="email" type="email" autocomplete="username" required>
+      <label for="login-password">Password</label>
+      <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+      <p id="login-error" class="form-error" role="alert" hidden></p>
+      <button class="button button-gold" type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <div id="app-view" class="admin-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="/">SINGHRJ <span>TRANSPORT</span></a>
+      <p class="eyebrow">WORKSPACE</p>
+      <nav class="side-nav" aria-label="Admin pages">
+        <button class="nav-link active" type="button" data-view="dashboard">Dashboard</button>
+        <button class="nav-link" type="button" data-view="quotes">Quote Requests</button>
+        <button class="nav-link" type="button" data-view="messages">Support / Messages</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <span class="live-dot"></span><span>Live inbox alerts</span>
+        <button id="logout-button" class="button button-outline" type="button">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SINGHRJ TRANSPORT</p>
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="admin-user">
+          <span id="notification-status" class="muted">Checking notification permission…</span>
+          <button id="enable-notifications" class="button button-outline" type="button" hidden>Enable notifications</button>
+          <span class="avatar">SR</span>
+          <span id="admin-email"></span>
+        </div>
+      </header>
+
+      <div id="app-error" class="notice notice-error" role="alert" hidden></div>
+      <div id="app-notice" class="notice notice-success" role="status" hidden></div>
+
+      <section id="dashboard-view" class="view-panel">
+        <div class="welcome-card">
+          <div>
+            <p class="eyebrow">OPERATIONS OVERVIEW</p>
+            <h2>Your enquiries, all in one place.</h2>
+            <p class="muted">New quote requests and contact messages appear here automatically.</p>
+          </div>
+          <span class="status-pill"><span class="live-dot"></span> Monitoring</span>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><span>Quote requests</span><strong id="quote-count">—</strong><small>All submissions</small></article>
+          <article class="stat-card"><span>Support messages</span><strong id="message-count">—</strong><small>All contact enquiries</small></article>
+        </div>
+        <div class="section-heading">
+          <div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent enquiries</h2></div>
+          <button class="button button-outline" type="button" data-view="quotes">View quote requests</button>
+        </div>
+        <div id="recent-list" class="record-list"></div>
+      </section>
+
+      <section id="quotes-view" class="view-panel" hidden>
+        <div class="section-heading">
+          <div><p class="eyebrow">SHIPMENT ENQUIRIES</p><h2>Quote requests</h2></div>
+          <span id="quotes-total" class="muted"></span>
+        </div>
+        <div id="quotes-list" class="record-list"></div>
+        <div class="pagination"><button class="button button-outline" id="quotes-prev" type="button">Previous</button><span id="quotes-page"></span><button class="button button-outline" id="quotes-next" type="button">Next</button></div>
+      </section>
+
+      <section id="messages-view" class="view-panel" hidden>
+        <div class="section-heading">
+          <div><p class="eyebrow">CUSTOMER SUPPORT</p><h2>Messages</h2></div>
+          <span id="messages-total" class="muted"></span>
+        </div>
+        <div id="messages-list" class="record-list"></div>
+        <div class="pagination"><button class="button button-outline" id="messages-prev" type="button">Previous</button><span id="messages-page"></span><button class="button button-outline" id="messages-next" type="button">Next</button></div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

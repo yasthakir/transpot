@@ -1,1 +1,11 @@
 node_modules/
+.env
+.env.*
+!.env.example
+public/videos/truck-hd-scrub-mobile.html
+public/videos/truck-hd-scrub-mobile_files/
+dist/cinematic.css
+dist/cinematic.js
+dist/img/
+dist/srjlogo.png
+dist/videos/
