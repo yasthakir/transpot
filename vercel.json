@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://singhrj-transport-api.onrender.com/api/$1"
+      "destination": "https://traspot-backend.onrender.com/api/$1"
     }
   ]
 }
