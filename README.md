@@ -13,7 +13,7 @@ Static multi-page frontend for SinghRJ Transport. The Express/MongoDB API is mai
 The frontend deployment file is `vercel.json`; the backend repository contains the Render Blueprint. The browser continues to call same-origin `/api` URLs; Vercel proxies those requests to Render. This also keeps the admin session cookie same-origin.
 
 1. Import `yasthakir/transpot` into Vercel. Use the repository root, `npm run build`, and `dist` as the output directory; these are set in `vercel.json`.
-2. Create a Render Blueprint from `yasthakir/traspot-backend`. Configure its `MONGODB_URI`, `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `JWT_SECRET` secrets as described in that repository's README.
+2. Create a Render Blueprint from `yasthakir/traspot-backend`. Configure its database/admin secrets and SMTP settings as described in that repository's README. SMTP credentials belong in Render's environment settings, not in this frontend repository.
 3. Confirm Render's service URL is `https://traspot-backend.onrender.com`. If Render assigns a different URL, update the destination in `vercel.json`.
 4. In MongoDB Atlas, allow the Render service's outbound IP ranges and grant its database user access to the application database. Avoid allowing all IP addresses unless you have deliberately accepted that risk.
 5. After both services deploy, check `https://traspot-backend.onrender.com/api/health`, then test quote/contact submissions and `/admin.html` on the Vercel domain.

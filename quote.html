@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get a Quote — SinghRJ Transport | Road Freight Services UK</title>
     <meta name="description"
-        content="Get an instant freight quote from SinghRJ Transport. FTL, LTL, Express Delivery and Specialized Transport. Quick response within 2-4 hours." />
+        content="Request a freight quote from SinghRJ Transport for UK road transport, express delivery and specialized transport. Our team typically responds within 2-4 business hours." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SinghRJ Transport" />
+    <meta property="og:title" content="Get a Freight Quote | SinghRJ Transport UK" />
+    <meta property="og:description"
+        content="Request a freight quote for UK road transport, express delivery and specialized transport from SinghRJ Transport." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -181,13 +186,12 @@
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 border border-[#D89A18]/30 rounded-full mb-8 bg-[#D89A18]/10 backdrop-blur-sm">
                 <i data-lucide="file-text" class="w-4 h-4 text-[#D89A18]"></i>
-                <span class="text-[#D89A18] font-[700] text-[11px] uppercase tracking-[0.15em]">Free Instant
-                    Quote</span>
+                <span class="text-[#D89A18] font-[700] text-[11px] uppercase tracking-[0.15em]">Free Quote</span>
             </div>
 
             <h1
                 class="text-[40px] md:text-[56px] lg:text-[68px] leading-[1.05] font-[800] text-white mb-6 tracking-[-0.02em]">
-                Get Your <span class="text-[#D89A18]">Freight Quote</span><br>In Minutes
+                Get Your <span class="text-[#D89A18]">Freight Quote</span>
             </h1>
             <p class="text-gray-300 text-[17px] md:text-[19px] leading-[1.6] font-[450] max-w-[600px] mx-auto mb-10">
                 Fill in your shipment details below and our logistics experts will respond within 2–4 business hours
@@ -585,7 +589,7 @@
                         </div>
                     </div>
                     <p class="text-gray-400 font-[450] text-[14px] leading-[1.7] mb-8">Providing high-standard logistics
-                        and transportation services globally. Professionalism and punctuality are our core values.</p>
+                        road transport services across the UK. Professionalism and punctuality are our core values.</p>
                 </div>
 
                 <!-- Column 2 -->
@@ -725,12 +729,15 @@
                             body: JSON.stringify(values)
                         });
 
+                        const result = await response.json().catch(() => ({}));
                         if (response.ok) {
+                            successBox.querySelector("p").textContent = result.emailSent
+                                ? "Your request was received and sent to our team. We will review it and respond during business hours."
+                                : "Your request was saved, but we could not email our team. Please call +44 7438 282122 to confirm it.";
                             form.classList.add("hidden");
                             successBox.classList.remove("hidden");
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         } else {
-                            const result = await response.json().catch(() => ({}));
                             errorBox.querySelector("p").textContent = result.error || "Please try again or call us directly at +44 7438 282122.";
                             errorBox.classList.remove("hidden");
                         }
